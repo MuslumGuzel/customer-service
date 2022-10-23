@@ -1,5 +1,6 @@
 using CustomerApi.Models;
 using CustomerApi.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerApi.Controllers
@@ -16,6 +17,7 @@ namespace CustomerApi.Controllers
             this.customerRepository = customerRepository;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IList<Customer>> Get()
         {
